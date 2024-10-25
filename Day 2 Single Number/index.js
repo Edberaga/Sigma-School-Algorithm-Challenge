@@ -1,14 +1,25 @@
 function findSingleNumber(nums) {
-    let countValue = {};
+    const array = [];
+    
     for(let i = 0; i < nums.length; i++) {
-        if(countValue[nums[i]] === undefined) {
-            countValue[nums[i]] = 1;
-        } else {
-            countValue[nums[i]]++;
+        let count = 0;
+        for(let j = 0; j < nums.length; j++) {
+            if(i === j) {
+                continue;
+            }
+            if(nums[i] === nums[j]) {
+                console.log(`${nums[i]} at index ${i}, is the same as ${nums[j]} at index ${j}`);
+                count++;
+            }
+        }
+        if(count === 0) {
+            array.push(nums[i]);
         }
     }
-    return Object.keys(countValue).find(key => countValue[key] === 1);
+
+    return array;
 }
 
 const nums = [2, 4, 6, 2, 4];
-console.log('Single number:', findSingleNumber(nums)); //6
+const result = findSingleNumber(nums);
+console.log(`The single number are... ${result}`);
