@@ -1,9 +1,6 @@
 function findFibonacciNumber(n) {
     if (n <= 0) {
-        return "Invalid input. Please enter a positive integer.";
-    }
-    if(n === 1 || n === 2) {
-        return 1;
+        return 0;
     }
 
     let number = [0, 1, 1];
@@ -17,5 +14,5 @@ function findFibonacciNumber(n) {
     return current;
 }
 
-const n = 7;
+const n = 9;
 console.log(`Number of Fibonacci ${n} is ${findFibonacciNumber(n)}`);
